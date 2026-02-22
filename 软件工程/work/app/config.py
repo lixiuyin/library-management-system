@@ -40,7 +40,7 @@ if _env('FLASK_ENV', 'development').lower() == 'production' and JWT_SECRET_KEY =
 FLASK_ENV = _env('FLASK_ENV', 'development')
 FLASK_DEBUG = _env('FLASK_DEBUG', '1').lower() in ('1', 'true', 'yes')
 FLASK_HOST = _env('FLASK_HOST', '127.0.0.1')
-FLASK_PORT = int(_env('FLASK_PORT', '8080') or '8080')
+FLASK_PORT = int(_env('FLASK_PORT', '8088') or '8088')
 
 # CORS：为空或 * 表示允许所有来源（开发）；生产可填前端地址，多个用逗号分隔
 CORS_ORIGINS_RAW = _env('CORS_ORIGINS', '*')

@@ -4,8 +4,6 @@
 
 基于 **Microsoft SQL Server** 与 **Python** 的完整图书借阅管理系统，提供**命令行**端使用，涵盖建库、约束、触发器、存储过程、视图、索引及备份恢复等数据库技术实践。
 
----
-
 ## 项目概述
 
 本系统实现图书馆场景下的图书分类、馆藏管理、读者管理、借还书、逾期扣款、充值扣款及管理员操作审计等功能。数据库设计强调**完整性约束**、**业务规则自动化**（触发器）与**可追溯性**（操作记录不可篡改）。
@@ -18,8 +16,6 @@
 | 数据库     | Microsoft SQL Server         |
 | 应用层     | Python（命令行）             |
 
----
-
 ## 技术栈
 
 | 层次       | 技术                                                                 |
@@ -27,8 +23,6 @@
 | 数据库     | Microsoft SQL Server（T-SQL）                                        |
 | 命令行端   | Python 3.8+、pymssql、pandas；keyboard 仅非 macOS 用于分页（macOS 用回车/n/q） |
 | 驱动       | pymssql                                                              |
-
----
 
 ## 系统功能
 
@@ -51,8 +45,6 @@
 ### 运行方式
 
 - **命令行端**（`main.py`）：控制台菜单式操作，分页展示查询结果（pandas DataFrame）；Windows 下用 keyboard 翻页（=/-），macOS 下用回车/n/q 翻页（避免 CFData 断言崩溃）。适合本地/机房环境直接操作数据库。
-
----
 
 ## 数据库设计要点
 
@@ -99,91 +91,56 @@
 
 - 对 `图书信息(ISBN)`、`借阅信息(读者编号, 图书编号, ISBN)`、`历史借阅信息(读者编号, 图书编号, ISBN)`、`充值扣款记录(读者编号)` 建立非聚集索引，用于加速查询与统计。
 
----
-
 ## 项目结构
 
 ```
 数据库技术/
 ├── README.md                 # 本文件
-├── pyproject.toml            # 项目与依赖（uv/pip 安装）
+├── pyproject.toml            # 项目与依赖（推荐 uv sync；另有 requirements.txt 可由 uv export 生成供 pip）
 ├── docker.sh                 # 可选：启动 Azure SQL Edge 容器（卷 sqledge-data，详见脚本内 Mac 优势说明）
 ├── main.py                   # 命令行端（pymssql + pandas，菜单式操作；跨平台 pause/清屏）
 ├── init.py                   # 数据库初始化脚本（建库、建表、触发器、视图、存储过程、测试数据，可由 Python 执行）
 └── schema.sql                # 完整 T-SQL 脚本（与 init.py 结构一致：建库、表、约束、索引、触发器、视图、存储过程、示例数据）
 ```
 
----
-
 ## 环境与运行
 
 ### 环境要求
 
-- **数据库**：Microsoft SQL Server（建议 2016 及以上），需已安装并启动服务。
-- **Python**：3.7+（建议 3.8+）。
-- **依赖**：见下方「依赖安装」。
+- **数据库**：Microsoft SQL Server（建议 2016 及以上），或使用本目录 `docker.sh` 启动 Azure SQL Edge 容器。
+- **Python**：3.8+。推荐使用 **uv** 管理依赖（与 `pyproject.toml` 一致），也可使用 pip。
 
-### 依赖安装
+### 依赖安装（命令行端）
 
-**命令行端（main.py）**
-
-使用 uv（推荐，与 pyproject.toml 一致）：
+推荐使用 uv：
 
 ```bash
 cd 数据库技术
 uv sync
 ```
 
-或使用 pip：
+或使用 pip：`pip install pymssql pandas keyboard`（keyboard 仅非 macOS 用于分页；macOS 下用回车/n/q 翻页）。
 
-```bash
-pip install pymssql pandas keyboard
-```
+### 运行步骤（推荐顺序）
 
-（keyboard 仅在非 macOS 下用于分页；macOS 下使用回车/n/q 翻页，不依赖 keyboard。Windows 上使用 keyboard 时可能需管理员权限。）
+1. **配置数据库** — 执行 `docker.sh` 启动 Azure SQL Edge 容器（镜像见脚本内说明，Mac 下支持原生 ARM64）。容器名 **sqledge**，端口 1433，就绪约 20～40 秒。
+2. **初始化库表** — 执行 `uv run python init.py`（或 `python init.py`），按提示输入主机（如 localhost）、账号 **sa**、密码（与 `docker.sh` 中 `SA_PASSWORD` 一致）。init.py 会建库、建表、触发器、视图、存储过程及示例数据，并包含**部分测试**。
+3. **运行命令行界面** — 执行 `uv run python main.py`（或 `python main.py`），按提示连接数据库并选择 **BOOKS** 库，随后以管理员或读者身份登录。初始化后默认管理员 **admin / admin**。
 
-### 数据库初始化
-
-可使用以下两种方式之一建库并初始化（二选一即可）：
-
-| 方式 | 说明 |
-|------|------|
-| **schema.sql（推荐）** | 在 SSMS 中执行 `schema.sql`，完成建库、建表、约束、索引、触发器、视图、存储过程及示例数据；含**主管理员**及“主管理员可添加/删除其他管理员”逻辑，与当前 `main.py` 一致。首次可用 admin / admin 登录。 |
-| **init.py** | 运行 `python init.py`（或 `uv run python init.py`），按提示输入引擎地址、账号、密码后自动建库并执行初始化。结构与 `schema.sql` 一致（含主管理员、备份恢复记录等）。建库若带路径失败会尝试简单 `CREATE DATABASE BOOKS`；Docker 环境下路径为 `/var/opt/mssql/data`、`/var/opt/mssql/log`，与 `docker.sh` 卷挂载一致。 |
-
-两种方式均会创建 `BOOKS` 数据库及表、触发器、视图、存储过程等，与当前 `main.py` 功能一致。
-
-### Docker 方式运行（可选）
-
-使用项目内 `docker.sh` 在本地启动 **Azure SQL Edge** 容器（镜像 `mcr.microsoft.com/azure-sql-edge`，命名卷 `sqledge-data` 挂载为 `/var/opt/mssql`，持久化数据）。在 Mac（尤其 Apple Silicon）下该镜像有原生 ARM64 支持、资源占用更小等优势，详见 `docker.sh` 内注释。
-
-```bash
-cd 数据库技术
-chmod +x docker.sh && ./docker.sh
-```
-
-容器名 **sqledge**，约 20～40 秒就绪后，用 SSMS 或 sqlcmd 连接 **localhost,1433**（账号 **sa**，密码见 `docker.sh` 中 `SA_PASSWORD`），执行本目录下的 **schema.sql** 建库；或在本机运行 `python init.py`（或 `uv run python init.py`），主机填 **localhost**，账号 **sa**，密码与容器一致，由 init.py 建库并初始化。若无法连接可执行 `docker logs sqledge` 查看日志。
-
-本机运行 `python main.py`（或 `uv run python main.py`）时，主机填 **localhost**，账号 **sa**，密码与容器一致，选择 **BOOKS** 数据库即可。
-
-### 配置与启动
-
-- 运行 `python main.py` 或 `uv run python main.py`，按提示输入主机、账号、密码连接数据库，并选择使用 `BOOKS` 数据库；随后按菜单选择管理员或读者身份登录并操作。使用 `schema.sql` 或 `init.py` 初始化后，首次可用**管理员账号 admin、密码 admin** 登录（主管理员，可添加/删除其他管理员）。
-- **备份/恢复**：使用管理员菜单中的「备份数据库」「恢复数据库」时，需在 `main.py` 的 `Backup()`、`Restore()` 内将 `backup_path`、`restore_path` 改为本机可用路径。代码中默认为 `C:\Users\LiXiuyin\Desktop\Restore\BackUp.bak`，Linux/macOS 可改为例如 `/tmp/BOOKS.bak`，且目录需已存在、运行用户有写权限。
+若不用 Docker，可自行安装 SQL Server 后，用 **schema.sql**（在 SSMS 中执行）替代步骤 2，再执行步骤 3。
 
 ### 默认连接与密码（示例）
 
 | 场景 | 说明 |
 |------|------|
-| **init.py 交互默认** | 引擎地址为空回车则用 `.`（本机）；账号默认 `sa`；密码默认 `Lxy@2026sql`（与下方 Docker 一致时可直接回车）。 |
-| **Docker（docker.sh）** | 容器 **sqledge**，`SA_PASSWORD=Lxy@2026sql`，连接时主机 **localhost**，端口 **1433**，账号 **sa**，密码即该值。 |
+| **init.py 交互默认** | 主机为空回车为 `.`；账号 **sa**；密码默认 `Lxy@2026sql`（与 Docker 一致时可回车）。 |
+| **Docker（docker.sh）** | 容器 **sqledge**，主机 **localhost**，端口 **1433**，账号 **sa**，密码见脚本内 `SA_PASSWORD`。 |
 
 ### 其他说明
 
-- **中文显示**：建库使用 `COLLATE Chinese_PRC_CI_AS`，应用层已设置 UTF-8（stdout/stderr、pandas、pymssql `charset='utf8'`），终端编码为 UTF-8 时中文可正常显示。
-- **schema.sql 与 init.py**：两者在表、视图、存储过程等结构上保持一致，以 init.py 为参考维护；重复执行前会先 DROP 再 CREATE，便于反复初始化。
-
----
+- **备份/恢复**：管理员菜单中备份与恢复需在 `main.py` 的 `Backup()`、`Restore()` 内配置本机可用路径（默认示例见代码）。
+- **中文显示**：建库使用 `COLLATE Chinese_PRC_CI_AS`，应用层 UTF-8；终端为 UTF-8 时中文正常显示。
+- **schema.sql 与 init.py**：结构一致，可二选一建库；init.py 重复执行会先 DROP 再 CREATE，便于反复初始化。
 
 ## 个人与课程说明
 
@@ -197,8 +154,6 @@ chmod +x docker.sh && ./docker.sh
 - **应用层对接**：命令行端（pymssql）访问数据库完成业务操作。
 
 README 仅作项目说明与简历/作品集展示之用。
-
----
 
 ## 许可证
 
