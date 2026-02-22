@@ -1,0 +1,11 @@
+[project]
+name = "book-db"
+version = "0.1.0"
+description = "图书管理系统 · 数据库技术课程项目（SQL Server + Python 命令行）"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pymssql>=2.2.0",
+    "pandas>=1.0.0",
+    "keyboard>=0.13.0",
+]

@@ -1,0 +1,76 @@
+# ---------- 系统与 IDE ----------
+.DS_Store
+**/.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.lnk
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# ---------- Python（后端 work/、数据库技术/ 等）----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+.env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+*.egg
+build/
+dist/
+eggs/
+*.manifest
+*.spec
+.installed.cfg
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints/
+
+# ---------- 环境与密钥（勿提交）----------
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.development
+
+# ---------- Node / Vue（system/book-management-system、book-manager-system）----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+dist/
+
+# ---------- 数据库 / Docker 数据卷 ----------
+*.mdf
+*.ldf
+*.bak
+*.backup
+*.sql.bak
+
+
+# ---------- 日志与临时 ----------
+*.log
+*.tmp
+*.temp
+*.tmp.*
+.cache/
+*.orig
+*.rej
+*.rej.*

@@ -1,0 +1,16 @@
+[project]
+name = "book-management-backend"
+version = "0.1.0"
+description = "图书管理系统 - 后端 (软件工程)"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "Flask>=2.0",
+    "flask-sqlalchemy>=2.5",
+    "flask-migrate>=3.1",
+    "flask-cors>=3.0",
+    "flask-jwt-extended>=4.0",
+    "PyMySQL>=1.0",
+    "cryptography>=3.4",
+    "python-dotenv>=1.0",
+]
