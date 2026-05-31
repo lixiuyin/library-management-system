@@ -6,18 +6,22 @@ This repository contains two independent course projects for library management.
 
 ## Projects
 
-| Project | Course | Term | Stack | Grade |
-| --- | --- | --- | --- | --- |
-| [Database Technology](database-technology/) | Database Technology | Fall 2022 · Major | SQL Server + Python CLI | 99 |
-| [Software Engineering](software-engineering/) | Software Engineering | Fall 2023 · Minor | Flask + Vue 2 + MySQL | 92 |
+
+| Project                                       | Course               | Term              | Stack                   | Grade |
+| --------------------------------------------- | -------------------- | ----------------- | ----------------------- | ----- |
+| [Database Technology](database-technology/)   | Database Technology  | Fall 2022 · Major | SQL Server + Python CLI | 99    |
+| [Software Engineering](software-engineering/) | Software Engineering | Fall 2023 · Minor | Flask + Vue 2 + MySQL   | 92    |
+
 
 ## Demo Videos
 
-The README player loads HD videos from the `main` branch, and the browser video controls include fullscreen playback. The original HD files remain in `media/videos/`; the Software Engineering demo also includes an H.264 HD playback copy to avoid HEVC compatibility issues in some browsers.
+GitHub README filters YouTube `<iframe>` embeds, so the table below uses clickable YouTube thumbnails. Open a video to watch it in fullscreen HD.
+
 
 | Database Technology | Software Engineering |
 | --- | --- |
-| <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[Open HD video](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4) | <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[Open HD video](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4) |
+| [<img src="https://img.youtube.com/vi/vDb9shPoo60/hqdefault.jpg" width="420" alt="Database Technology demo video">](https://www.youtube.com/watch?v=vDb9shPoo60)<br>[Watch on YouTube](https://www.youtube.com/watch?v=vDb9shPoo60) | [<img src="https://img.youtube.com/vi/IJ76RYxe_vM/hqdefault.jpg" width="420" alt="Software Engineering demo video">](https://www.youtube.com/watch?v=IJ76RYxe_vM)<br>[Watch on YouTube](https://www.youtube.com/watch?v=IJ76RYxe_vM) |
+
 
 ## Repository Layout
 
@@ -25,13 +29,6 @@ The README player loads HD videos from the `main` branch, and the browser video 
 library-management-system/
 ├── README.md
 ├── README.en.md
-├── media/
-│   └── videos/
-│       ├── database-technology-demo.mp4
-│       ├── database-technology-demo-poster.jpg
-│       ├── software-engineering-demo.mp4
-│       ├── software-engineering-demo-web-hd.mp4
-│       └── software-engineering-demo-poster.jpg
 ├── database-technology/
 │   ├── README.md
 │   ├── README.en.md

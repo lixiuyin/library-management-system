@@ -13,11 +13,11 @@
 
 ## 演示视频
 
-下方播放器读取 `main` 分支中的高清视频，播放器控件支持全屏播放。原始高清文件仍保留在 `media/videos/`；软件工程演示另提供 H.264 高清播放版，避免 HEVC 原片在部分浏览器中无法直接播放。
+GitHub README 会过滤 YouTube `<iframe>`，所以下方使用可点击的 YouTube 视频封面；打开后可全屏播放高清版本。
 
 | 数据库技术 | 软件工程 |
 | --- | --- |
-| <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4) | <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4) |
+| [<img src="https://img.youtube.com/vi/vDb9shPoo60/hqdefault.jpg" width="420" alt="数据库技术演示视频">](https://www.youtube.com/watch?v=vDb9shPoo60)<br>[YouTube 播放](https://www.youtube.com/watch?v=vDb9shPoo60) | [<img src="https://img.youtube.com/vi/IJ76RYxe_vM/hqdefault.jpg" width="420" alt="软件工程演示视频">](https://www.youtube.com/watch?v=IJ76RYxe_vM)<br>[YouTube 播放](https://www.youtube.com/watch?v=IJ76RYxe_vM) |
 
 ## 目录结构
 
@@ -25,13 +25,6 @@
 library-management-system/
 ├── README.md
 ├── README.en.md
-├── media/
-│   └── videos/
-│       ├── database-technology-demo.mp4
-│       ├── database-technology-demo-poster.jpg
-│       ├── software-engineering-demo.mp4
-│       ├── software-engineering-demo-web-hd.mp4
-│       └── software-engineering-demo-poster.jpg
 ├── database-technology/
 │   ├── README.md
 │   ├── README.en.md
