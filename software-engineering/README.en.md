@@ -22,7 +22,7 @@ This is the Fall 2023 Software Engineering course project, graded 92. It uses a 
 ## Layout
 
 ```text
-软件工程/
+software-engineering/
 ├── README.md
 ├── README.en.md
 ├── backend/                 # Flask backend, default port 8088
@@ -46,7 +46,7 @@ This is the Fall 2023 Software Engineering course project, graded 92. It uses a 
 ## Quick Start
 
 ```bash
-cd 软件工程
+cd software-engineering
 cp backend/.env.example backend/.env
 ./scripts/start-all.sh
 ```
@@ -65,14 +65,14 @@ cp backend/.env.example backend/.env
 1. Start the database:
 
 ```bash
-cd 软件工程
+cd software-engineering
 ./scripts/start-mysql.sh
 ```
 
 2. Start the backend:
 
 ```bash
-cd 软件工程/backend
+cd software-engineering/backend
 uv sync
 uv run python seed.py
 uv run python run.py
@@ -81,7 +81,7 @@ uv run python run.py
 3. Start the reader app:
 
 ```bash
-cd 软件工程/frontend/reader-app
+cd software-engineering/frontend/reader-app
 npm install
 npm run serve
 ```
@@ -89,7 +89,7 @@ npm run serve
 4. Start the admin app:
 
 ```bash
-cd 软件工程/frontend/admin-app
+cd software-engineering/frontend/admin-app
 npm install
 npm run serve
 ```

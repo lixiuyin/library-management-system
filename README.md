@@ -8,8 +8,8 @@
 
 | 项目 | 课程 | 学期与性质 | 技术栈 | 成绩 |
 | --- | --- | --- | --- | --- |
-| [数据库技术](数据库技术/) | 数据库技术 | 2022 年秋 · 主修 | SQL Server + Python CLI | 99 |
-| [软件工程](软件工程/) | 软件工程 | 2023 年秋 · 辅修 | Flask + Vue 2 + MySQL | 92 |
+| [数据库技术](database-technology/) | 数据库技术 | 2022 年秋 · 主修 | SQL Server + Python CLI | 99 |
+| [软件工程](software-engineering/) | 软件工程 | 2023 年秋 · 辅修 | Flask + Vue 2 + MySQL | 92 |
 
 ## 演示视频
 
@@ -20,21 +20,21 @@
 ## 目录结构
 
 ```text
-图书管理系统/
+library-management-system/
 ├── README.md
 ├── README.en.md
 ├── media/
 │   └── videos/
 │       ├── database-technology-demo.mp4
 │       └── software-engineering-demo.mp4
-├── 数据库技术/
+├── database-technology/
 │   ├── README.md
 │   ├── README.en.md
 │   ├── start-sql-edge.sh
 │   ├── init.py
 │   ├── main.py
 │   └── schema.sql
-└── 软件工程/
+└── software-engineering/
     ├── README.md
     ├── README.en.md
     ├── backend/
@@ -51,7 +51,7 @@
 **数据库技术项目**
 
 ```bash
-cd 数据库技术
+cd database-technology
 ./start-sql-edge.sh
 uv sync
 uv run python init.py
@@ -61,7 +61,7 @@ uv run python main.py
 **软件工程项目**
 
 ```bash
-cd 软件工程
+cd software-engineering
 cp backend/.env.example backend/.env
 ./scripts/start-all.sh
 ```

@@ -8,8 +8,8 @@ This repository contains two independent course projects for library management.
 
 | Project | Course | Term | Stack | Grade |
 | --- | --- | --- | --- | --- |
-| [Database Technology](数据库技术/) | Database Technology | Fall 2022 · Major | SQL Server + Python CLI | 99 |
-| [Software Engineering](软件工程/) | Software Engineering | Fall 2023 · Minor | Flask + Vue 2 + MySQL | 92 |
+| [Database Technology](database-technology/) | Database Technology | Fall 2022 · Major | SQL Server + Python CLI | 99 |
+| [Software Engineering](software-engineering/) | Software Engineering | Fall 2023 · Minor | Flask + Vue 2 + MySQL | 92 |
 
 ## Demo Videos
 
@@ -27,14 +27,14 @@ library-management-system/
 │   └── videos/
 │       ├── database-technology-demo.mp4
 │       └── software-engineering-demo.mp4
-├── 数据库技术/
+├── database-technology/
 │   ├── README.md
 │   ├── README.en.md
 │   ├── start-sql-edge.sh
 │   ├── init.py
 │   ├── main.py
 │   └── schema.sql
-└── 软件工程/
+└── software-engineering/
     ├── README.md
     ├── README.en.md
     ├── backend/
@@ -51,7 +51,7 @@ library-management-system/
 **Database Technology project**
 
 ```bash
-cd 数据库技术
+cd database-technology
 ./start-sql-edge.sh
 uv sync
 uv run python init.py
@@ -61,7 +61,7 @@ uv run python main.py
 **Software Engineering project**
 
 ```bash
-cd 软件工程
+cd software-engineering
 cp backend/.env.example backend/.env
 ./scripts/start-all.sh
 ```

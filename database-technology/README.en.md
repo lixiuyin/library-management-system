@@ -22,7 +22,7 @@ This is the Fall 2022 Database Technology course project, graded 99. It is built
 ## Layout
 
 ```text
-数据库技术/
+database-technology/
 ├── README.md
 ├── README.en.md
 ├── start-sql-edge.sh     # Starts an Azure SQL Edge container
@@ -37,7 +37,7 @@ This is the Fall 2022 Database Technology course project, graded 99. It is built
 ## Quick Start
 
 ```bash
-cd 数据库技术
+cd database-technology
 ./start-sql-edge.sh
 uv sync
 uv run python init.py

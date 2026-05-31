@@ -13,7 +13,7 @@ desktop.ini
 *~
 *.sublime-*
 
-# ---------- Python（backend/、数据库技术/ 等）----------
+# ---------- Python（backend/、database-technology/ 等）----------
 __pycache__/
 *.py[cod]
 *$py.class

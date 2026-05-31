@@ -22,7 +22,7 @@
 ## 目录结构
 
 ```text
-软件工程/
+software-engineering/
 ├── README.md
 ├── README.en.md
 ├── backend/                 # Flask 后端，默认端口 8088
@@ -46,7 +46,7 @@
 ## 快速开始
 
 ```bash
-cd 软件工程
+cd software-engineering
 cp backend/.env.example backend/.env
 ./scripts/start-all.sh
 ```
@@ -65,14 +65,14 @@ cp backend/.env.example backend/.env
 1. 启动数据库：
 
 ```bash
-cd 软件工程
+cd software-engineering
 ./scripts/start-mysql.sh
 ```
 
 2. 启动后端：
 
 ```bash
-cd 软件工程/backend
+cd software-engineering/backend
 uv sync
 uv run python seed.py
 uv run python run.py
@@ -81,7 +81,7 @@ uv run python run.py
 3. 启动读者端：
 
 ```bash
-cd 软件工程/frontend/reader-app
+cd software-engineering/frontend/reader-app
 npm install
 npm run serve
 ```
@@ -89,7 +89,7 @@ npm run serve
 4. 启动管理端：
 
 ```bash
-cd 软件工程/frontend/admin-app
+cd software-engineering/frontend/admin-app
 npm install
 npm run serve
 ```

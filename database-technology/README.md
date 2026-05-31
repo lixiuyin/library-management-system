@@ -22,7 +22,7 @@
 ## 目录结构
 
 ```text
-数据库技术/
+database-technology/
 ├── README.md
 ├── README.en.md
 ├── start-sql-edge.sh     # 启动 Azure SQL Edge 容器
@@ -37,7 +37,7 @@
 ## 快速开始
 
 ```bash
-cd 数据库技术
+cd database-technology
 ./start-sql-edge.sh
 uv sync
 uv run python init.py
