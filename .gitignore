@@ -13,7 +13,7 @@ desktop.ini
 *~
 *.sublime-*
 
-# ---------- Python（后端 work/、数据库技术/ 等）----------
+# ---------- Python（backend/、数据库技术/ 等）----------
 __pycache__/
 *.py[cod]
 *$py.class
@@ -48,7 +48,7 @@ pip-delete-this-directory.txt
 !.env.example
 !.env.development
 
-# ---------- Node / Vue（system/book-management-system、book-manager-system）----------
+# ---------- Node / Vue（frontend/reader-app、frontend/admin-app）----------
 node_modules/
 npm-debug.log*
 yarn-debug.log*
