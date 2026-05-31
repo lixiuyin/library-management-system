@@ -13,9 +13,11 @@
 
 ## 演示视频
 
+下方播放器读取 `main` 分支中的高清视频，播放器控件支持全屏播放。原始高清文件仍保留在 `media/videos/`；软件工程演示另提供 H.264 高清播放版，避免 HEVC 原片在部分浏览器中无法直接播放。
+
 | 数据库技术 | 软件工程 |
 | --- | --- |
-| <video src="./media/videos/database-technology-demo.mp4" controls width="100%"></video><br>[打开视频](media/videos/database-technology-demo.mp4) | <video src="./media/videos/software-engineering-demo.mp4" controls width="100%"></video><br>[打开视频](media/videos/software-engineering-demo.mp4) |
+| <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4) | <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4) |
 
 ## 目录结构
 
@@ -26,7 +28,10 @@ library-management-system/
 ├── media/
 │   └── videos/
 │       ├── database-technology-demo.mp4
-│       └── software-engineering-demo.mp4
+│       ├── database-technology-demo-poster.jpg
+│       ├── software-engineering-demo.mp4
+│       ├── software-engineering-demo-web-hd.mp4
+│       └── software-engineering-demo-poster.jpg
 ├── database-technology/
 │   ├── README.md
 │   ├── README.en.md

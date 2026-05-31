@@ -13,9 +13,11 @@ This repository contains two independent course projects for library management.
 
 ## Demo Videos
 
+The README player loads HD videos from the `main` branch, and the browser video controls include fullscreen playback. The original HD files remain in `media/videos/`; the Software Engineering demo also includes an H.264 HD playback copy to avoid HEVC compatibility issues in some browsers.
+
 | Database Technology | Software Engineering |
 | --- | --- |
-| <video src="./media/videos/database-technology-demo.mp4" controls width="100%"></video><br>[Open video](media/videos/database-technology-demo.mp4) | <video src="./media/videos/software-engineering-demo.mp4" controls width="100%"></video><br>[Open video](media/videos/software-engineering-demo.mp4) |
+| <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[Open HD video](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4) | <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[Open HD video](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4) |
 
 ## Repository Layout
 
@@ -26,7 +28,10 @@ library-management-system/
 ├── media/
 │   └── videos/
 │       ├── database-technology-demo.mp4
-│       └── software-engineering-demo.mp4
+│       ├── database-technology-demo-poster.jpg
+│       ├── software-engineering-demo.mp4
+│       ├── software-engineering-demo-web-hd.mp4
+│       └── software-engineering-demo-poster.jpg
 ├── database-technology/
 │   ├── README.md
 │   ├── README.en.md
