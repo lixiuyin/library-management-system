@@ -13,11 +13,16 @@
 
 ## 演示视频
 
-GitHub README 会过滤 YouTube `<iframe>`，所以下方使用可点击的 YouTube 视频封面；打开后可全屏播放高清版本。
+项目演示视频已发布到 YouTube：
+
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@lixiuyin)
+
+> GitHub README 会过滤 YouTube `<iframe>`，请点击缩略图到 YouTube 播放，可全屏观看高清版本。
 
 | 数据库技术 | 软件工程 |
-| --- | --- |
-| [<img src="https://img.youtube.com/vi/vDb9shPoo60/hqdefault.jpg" width="420" alt="数据库技术演示视频">](https://www.youtube.com/watch?v=vDb9shPoo60)<br>[YouTube 播放](https://www.youtube.com/watch?v=vDb9shPoo60) | [<img src="https://img.youtube.com/vi/IJ76RYxe_vM/hqdefault.jpg" width="420" alt="软件工程演示视频">](https://www.youtube.com/watch?v=IJ76RYxe_vM)<br>[YouTube 播放](https://www.youtube.com/watch?v=IJ76RYxe_vM) |
+|:---:|:---:|
+| [![数据库技术演示视频](https://img.youtube.com/vi/vDb9shPoo60/maxresdefault.jpg)](https://youtu.be/vDb9shPoo60) | [![软件工程演示视频](https://img.youtube.com/vi/IJ76RYxe_vM/maxresdefault.jpg)](https://youtu.be/IJ76RYxe_vM) |
+| SQL Server + Python 命令行端，展示建库、初始化、业务操作和数据库对象实践 | Flask + Vue 2 + MySQL 前后端分离系统，展示读者端、管理端和核心借阅流程 |
 
 ## 目录结构
 

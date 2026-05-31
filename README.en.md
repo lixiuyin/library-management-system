@@ -15,12 +15,16 @@ This repository contains two independent course projects for library management.
 
 ## Demo Videos
 
-GitHub README filters YouTube `<iframe>` embeds, so the table below uses clickable YouTube thumbnails. Open a video to watch it in fullscreen HD.
+Walk-throughs and feature demos are on the project's YouTube channel:
 
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@lixiuyin)
+
+> Click a thumbnail to play on YouTube. GitHub-flavored Markdown does not embed live YouTube players inline.
 
 | Database Technology | Software Engineering |
-| --- | --- |
-| [<img src="https://img.youtube.com/vi/vDb9shPoo60/hqdefault.jpg" width="420" alt="Database Technology demo video">](https://www.youtube.com/watch?v=vDb9shPoo60)<br>[Watch on YouTube](https://www.youtube.com/watch?v=vDb9shPoo60) | [<img src="https://img.youtube.com/vi/IJ76RYxe_vM/hqdefault.jpg" width="420" alt="Software Engineering demo video">](https://www.youtube.com/watch?v=IJ76RYxe_vM)<br>[Watch on YouTube](https://www.youtube.com/watch?v=IJ76RYxe_vM) |
+|:---:|:---:|
+| [![Database Technology demo video](https://img.youtube.com/vi/vDb9shPoo60/maxresdefault.jpg)](https://youtu.be/vDb9shPoo60) | [![Software Engineering demo video](https://img.youtube.com/vi/IJ76RYxe_vM/maxresdefault.jpg)](https://youtu.be/IJ76RYxe_vM) |
+| SQL Server + Python CLI demo covering database setup, initialization, workflows, and database objects | Flask + Vue 2 + MySQL full-stack demo covering the reader app, admin app, and core borrowing workflows |
 
 
 ## Repository Layout
