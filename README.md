@@ -17,7 +17,7 @@
 
 | 数据库技术 | 软件工程 |
 | --- | --- |
-| <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/database-technology-demo.mp4) | <video src="https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://media.githubusercontent.com/media/lixiuyin/library-management-system/main/media/videos/software-engineering-demo-web-hd.mp4) |
+| <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4" poster="./media/videos/database-technology-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/database-technology-demo.mp4) | <video src="https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4" poster="./media/videos/software-engineering-demo-poster.jpg" controls preload="metadata" width="420"></video><br>[打开高清视频](https://raw.githubusercontent.com/lixiuyin/library-management-system/refs/heads/main/media/videos/software-engineering-demo-web-hd.mp4) |
 
 ## 目录结构
 
