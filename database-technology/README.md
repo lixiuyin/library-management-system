@@ -1,40 +1,51 @@
-# 图书管理系统 · 数据库技术
+# Library Management System · Database Technology
 
-中文 | [English](README.en.md)
+**English** | [中文](README.zh-CN.md)
 
-2022 年秋季「数据库技术」课程大作业，成绩 99。项目基于 Microsoft SQL Server 和 Python 命令行端，重点展示数据库建模、约束、触发器、存储过程、视图、索引、备份与恢复。
+> Fall 2022 Database Technology course project (graded 99). Built with Microsoft SQL Server and a Python command-line client, focusing on schema design, constraints, triggers, stored procedures, views, indexes, backup, and restore.
 
-## 功能
+## Table of Contents
 
-- 管理员：图书管理、读者管理、借阅管理、管理员管理、备份恢复和重要操作审计。
-- 读者：图书检索、当前借阅、历史借阅、充值扣款记录和密码修改。
-- 数据库：主外键、CHECK 约束、唯一约束、触发器、视图、存储过程和非聚集索引。
+- [Features](#features)
+- [Stack](#stack)
+- [Layout](#layout)
+- [Quick Start](#quick-start)
+- [Runtime Notes](#runtime-notes)
+- [Database Design Highlights](#database-design-highlights)
+- [Backup and Restore](#backup-and-restore)
+- [Notes](#notes)
 
-## 技术栈
+## Features
 
-| 层次 | 技术 |
+- **Admin** — book management, reader management, borrowing management, admin management, backup/restore, and important operation audit records.
+- **Reader** — book search, active loans, borrowing history, recharge/deduction records, and password changes.
+- **Database** — primary/foreign keys, CHECK constraints, unique constraints, triggers, views, stored procedures, and non-clustered indexes.
+
+## Stack
+
+| Layer | Technology |
 | --- | --- |
-| 数据库 | Microsoft SQL Server / Azure SQL Edge |
-| SQL | T-SQL、触发器、存储过程、视图、索引 |
-| 应用层 | Python 3.8+、pymssql、pandas |
-| 工具 | uv、Docker |
+| Database | Microsoft SQL Server / Azure SQL Edge |
+| SQL | T-SQL, triggers, stored procedures, views, indexes |
+| App | Python 3.8+, pymssql, pandas |
+| Tooling | uv, Docker |
 
-## 目录结构
+## Layout
 
 ```text
 database-technology/
-├── README.md
-├── README.en.md
-├── start-sql-edge.sh     # 启动 Azure SQL Edge 容器
-├── init.py               # 初始化数据库、对象和示例数据
-├── main.py               # 命令行交互端
-├── schema.sql            # 完整 T-SQL 脚本
+├── README.md             # English (default)
+├── README.zh-CN.md       # 中文
+├── start-sql-edge.sh     # Starts an Azure SQL Edge container
+├── init.py               # Initializes the database, objects, and sample data
+├── main.py               # Command-line client
+├── schema.sql            # Full T-SQL script
 ├── pyproject.toml
 ├── requirements.txt
 └── uv.lock
 ```
 
-## 快速开始
+## Quick Start
 
 ```bash
 cd database-technology
@@ -44,42 +55,42 @@ uv run python init.py
 uv run python main.py
 ```
 
-初始化后默认管理员账号为 `admin`，密码为 `admin`。
+After initialization, the default admin account is `admin` with password `admin`.
 
-## 运行说明
+## Runtime Notes
 
-1. `start-sql-edge.sh` 会启动本地 Azure SQL Edge 容器：
+1. `start-sql-edge.sh` starts a local Azure SQL Edge container:
 
-| 项 | 值 |
+   | Item | Value |
+   | --- | --- |
+   | Container | sqledge |
+   | Address | localhost:1433 |
+   | User | sa |
+   | Password | `SA_PASSWORD` in the script |
+
+2. `init.py` creates the `BOOKS` database, tables, constraints, indexes, triggers, views, stored procedures, and sample data. Re-running it rebuilds the database, which is useful for demos and testing.
+
+3. `main.py` starts the command-line client. Windows can use `keyboard` for paging; macOS uses Enter, `n`, and `q` to avoid system permission issues.
+
+If you do not use Docker, install SQL Server manually and run `schema.sql` in SSMS or Azure Data Studio.
+
+## Database Design Highlights
+
+| Object | Description |
 | --- | --- |
-| 容器名 | sqledge |
-| 地址 | localhost:1433 |
-| 用户 | sa |
-| 密码 | 脚本中的 `SA_PASSWORD` |
+| Tables | Book categories, books, readers, active loans, historical loans, admins, recharge/deduction records, important admin operations, backup/restore records |
+| Constraints | ISBN length, reader ID length, reader type, non-negative balance, book status enum, unique admin account |
+| Triggers | Generate borrowing limits, enforce loan count limits, fill due dates, deduct overdue fines, protect history and audit records |
+| Views | Current loan counts, total borrowing TOP10, and other reporting views |
+| Stored procedures | Book listing/removal, borrowing/returning, reader/admin CRUD, password reset, recharge, backup/restore |
+| Indexes | ISBN, loan join fields, historical loan join fields, recharge/deduction reader field |
 
-2. `init.py` 会创建 `BOOKS` 数据库、表、约束、索引、触发器、视图、存储过程和示例数据。重复执行会重建数据库，适合演示和测试。
+The original coursework required an E-R diagram, but that file is missing. This repository keeps the implemented SQL, command-line client, and runtime documentation.
 
-3. `main.py` 启动命令行界面。Windows 下支持 `keyboard` 翻页；macOS 下使用回车、`n`、`q` 翻页，避免系统权限问题。
+## Backup and Restore
 
-如果不使用 Docker，可以自行安装 SQL Server，并在 SSMS/Azure Data Studio 中执行 `schema.sql`。
+Backup and restore are available in the admin menu. The default paths are defined in `Backup()` / `Restore()` in `main.py`; adjust them to readable/writable local paths before running on another machine.
 
-## 数据库设计要点
+## Notes
 
-| 对象 | 说明 |
-| --- | --- |
-| 表 | 图书分类、图书信息、读者信息、借阅信息、历史借阅信息、管理员信息、充值扣款记录、管理员重要操作记录、备份恢复记录 |
-| 约束 | ISBN 长度、读者编号长度、读者类型、余额非负、图书状态枚举、管理员账号唯一 |
-| 触发器 | 自动生成借阅权限、校验借阅数量上限、填充应还日期、逾期扣款、保护历史借阅和审计记录 |
-| 视图 | 当前借阅数量、总借阅量 TOP10 等统计视图 |
-| 存储过程 | 图书上下架、借还书、读者与管理员增删改查、密码重置、充值、备份恢复 |
-| 索引 | ISBN、借阅关联字段、历史借阅关联字段、充值扣款读者字段 |
-
-原作业要求包含 E-R 图，但该文件已丢失。本仓库保留了实现后的 SQL、命令行端和运行说明。
-
-## 备份与恢复
-
-管理员菜单中包含备份和恢复功能。默认路径写在 `main.py` 的 `Backup()` / `Restore()` 中，不同机器上运行前需要改成可写、可读的本机路径。
-
-## 说明
-
-本项目为课程作业，仅供学习与展示。脚本默认使用本地开发数据库，生产环境或共享环境请先调整密码、备份路径和连接信息。
+This is a coursework project for learning and portfolio display. The scripts target a local development database. For production or shared environments, change the password, backup paths, and connection settings first.

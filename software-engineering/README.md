@@ -1,49 +1,60 @@
-# 图书管理系统 · 软件工程
+# Library Management System · Software Engineering
 
-中文 | [English](README.en.md)
+**English** | [中文](README.zh-CN.md)
 
-2023 年秋季「软件工程」课程项目，成绩 92。项目采用前后端分离架构：Flask 后端 API、Vue 2 读者端、Vue 2 管理端，以及 MySQL 数据库。
+> Fall 2023 Software Engineering course project (graded 92). A separated frontend/backend architecture with a Flask API, two Vue 2 frontends, and a MySQL database.
 
-## 功能
+## Table of Contents
 
-- 读者端：登录、图书检索、当前借阅、历史借阅、充值记录、重要操作记录和密码修改。
-- 管理端：图书与分类管理、读者管理、借书/续借/还书、管理员管理、重要操作审计和借阅排行。
-- 后端：RESTful API、JWT 鉴权、SQLAlchemy 数据模型、CORS 配置和初始化种子数据。
+- [Features](#features)
+- [Stack](#stack)
+- [Layout](#layout)
+- [Quick Start](#quick-start)
+- [Manual Startup](#manual-startup)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+- [Notes](#notes)
 
-## 技术栈
+## Features
 
-| 层次 | 技术 |
+- **Reader app** — login, book search, active loans, borrowing history, recharge records, important operation records, and password changes.
+- **Admin app** — book and category management, reader management, borrowing workflows, admin management, audit records, and borrowing rankings.
+- **Backend** — RESTful APIs, JWT authentication, SQLAlchemy models, CORS configuration, and seed data initialization.
+
+## Stack
+
+| Layer | Technology |
 | --- | --- |
-| 数据库 | MySQL 5.7+ / MariaDB |
-| 后端 | Python 3.7+、Flask、SQLAlchemy、Flask-JWT-Extended |
-| 前端 | Vue 2、Vue Router、Element UI、Axios |
-| 工具 | uv、npm、Docker |
+| Database | MySQL 5.7+ / MariaDB |
+| Backend | Python 3.7+, Flask, SQLAlchemy, Flask-JWT-Extended |
+| Frontend | Vue 2, Vue Router, Element UI, Axios |
+| Tooling | uv, npm, Docker |
 
-## 目录结构
+## Layout
 
 ```text
 software-engineering/
-├── README.md
-├── README.en.md
-├── backend/                 # Flask 后端，默认端口 8088
+├── README.md                # English (default)
+├── README.zh-CN.md          # 中文
+├── backend/                 # Flask backend, default port 8088
 │   ├── app/
-│   │   ├── controllers/     # 业务函数，文件采用 snake_case 命名
+│   │   ├── controllers/     # Business functions, snake_case file names
 │   │   ├── models/
 │   │   └── views/
-│   ├── api.md               # API 说明
+│   ├── api.md               # API reference
 │   ├── run.py
 │   ├── seed.py
 │   ├── pyproject.toml
 │   └── .env.example
 ├── frontend/
-│   ├── reader-app/          # 读者端，默认端口 8081
-│   └── admin-app/           # 管理端，默认端口 8083
+│   ├── reader-app/          # Reader app, default port 8081
+│   └── admin-app/           # Admin app, default port 8083
 └── scripts/
-    ├── start-all.sh         # 一键启动 MySQL、后端和双前端
-    └── start-mysql.sh       # 启动本地 MySQL 容器
+    ├── start-all.sh         # Starts MySQL, backend, and both frontends
+    └── start-mysql.sh       # Starts a local MySQL container
 ```
 
-## 快速开始
+## Quick Start
 
 ```bash
 cd software-engineering
@@ -51,70 +62,70 @@ cp backend/.env.example backend/.env
 ./scripts/start-all.sh
 ```
 
-`start-all.sh` 会依次启动 MySQL、导入种子数据、启动 Flask 后端和两个前端。
+`start-all.sh` starts MySQL, imports seed data, then launches the Flask backend and both frontend apps.
 
-| 服务 | 地址 |
+| Service | URL |
 | --- | --- |
-| 后端 API | http://127.0.0.1:8088 |
-| 读者端 | http://localhost:8081 |
-| 管理端 | http://localhost:8083 |
+| Backend API | http://127.0.0.1:8088 |
+| Reader app | http://localhost:8081 |
+| Admin app | http://localhost:8083 |
 | MySQL | 127.0.0.1:3306 |
 
-## 分步运行
+## Manual Startup
 
-1. 启动数据库：
+1. Start the database:
 
-```bash
-cd software-engineering
-./scripts/start-mysql.sh
-```
+   ```bash
+   cd software-engineering
+   ./scripts/start-mysql.sh
+   ```
 
-2. 启动后端：
+2. Start the backend:
 
-```bash
-cd software-engineering/backend
-uv sync
-uv run python seed.py
-uv run python run.py
-```
+   ```bash
+   cd software-engineering/backend
+   uv sync
+   uv run python seed.py
+   uv run python run.py
+   ```
 
-3. 启动读者端：
+3. Start the reader app:
 
-```bash
-cd software-engineering/frontend/reader-app
-npm install
-npm run serve
-```
+   ```bash
+   cd software-engineering/frontend/reader-app
+   npm install
+   npm run serve
+   ```
 
-4. 启动管理端：
+4. Start the admin app:
 
-```bash
-cd software-engineering/frontend/admin-app
-npm install
-npm run serve
-```
+   ```bash
+   cd software-engineering/frontend/admin-app
+   npm install
+   npm run serve
+   ```
 
-## 配置
+## Configuration
 
-后端配置从 `backend/.env` 读取。复制 `backend/.env.example` 后填写实际数据库账号和 JWT 密钥。
+Backend configuration is loaded from `backend/.env`. Copy `backend/.env.example` and fill in the database credentials and JWT secret.
 
-| 变量 | 必填 | 说明 | 示例 |
+| Variable | Required | Description | Example |
 | --- | --- | --- | --- |
-| `DB_USERNAME` | 是 | 数据库用户 | root |
-| `DB_PASSWORD` | 是 | 数据库密码 | `start-mysql.sh` 中的 `ROOT_PASSWORD` |
-| `DB_HOST` | 是 | 数据库主机和端口 | 127.0.0.1:3306 |
-| `DB_NAME` | 是 | 数据库名 | book_system |
-| `JWT_SECRET_KEY` | 是 | JWT 签名密钥 | 随机长字符串 |
-| `FLASK_PORT` | 否 | 后端端口 | 8088 |
-| `CORS_ORIGINS` | 否 | 允许的前端来源 | `http://localhost:8081,http://localhost:8083` |
+| `DB_USERNAME` | Yes | Database user | root |
+| `DB_PASSWORD` | Yes | Database password | `ROOT_PASSWORD` in `start-mysql.sh` |
+| `DB_HOST` | Yes | Database host and port | 127.0.0.1:3306 |
+| `DB_NAME` | Yes | Database name | book_system |
+| `JWT_SECRET_KEY` | Yes | JWT signing secret | long random string |
+| `FLASK_PORT` | No | Backend port | 8088 |
+| `CORS_ORIGINS` | No | Allowed frontend origins | `http://localhost:8081,http://localhost:8083` |
 
-前端开发环境的 API 地址在两个应用的 `.env.development` 中配置，默认指向 `http://127.0.0.1:8088`。
+The frontend API base URL is configured in each app's `.env.development`, and defaults to `http://127.0.0.1:8088`.
 
-## 文档
+## Documentation
 
-- [后端 API 文档](backend/api.md)
-- [根目录 README](../README.md)
+- [Backend API reference](backend/api.md)
+- [Repository README](../README.md)
 
-## 说明
+## Notes
 
-本项目为课程作业，仅供学习与展示。生产部署前需要替换默认密钥、数据库密码，并根据部署环境调整 CORS 和 API 地址。
+This is a coursework project for learning and portfolio display. Before production deployment, replace default secrets and database passwords, then adjust CORS and API URLs for the target environment.

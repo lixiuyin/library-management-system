@@ -1,20 +1,22 @@
-# 读者端前端
+# Reader Frontend
 
-中文 | [English](README.en.md)
+**English** | [中文](README.zh-CN.md)
 
-Vue 2 读者端应用，默认运行在 `http://localhost:8081`。主要功能包括图书检索、当前借阅、历史借阅、充值记录、重要操作记录和个人信息维护。
+> Vue 2 reader-facing app, served at `http://localhost:8081` by default. It supports book search, active loans, borrowing history, recharge records, important operation records, and profile maintenance.
 
-## 运行
+## Run
 
 ```bash
 npm install
 npm run serve
 ```
 
-## 构建
+## Build
 
 ```bash
 npm run build
 ```
 
-开发环境 API 地址在 `.env.development` 中配置，默认指向 `http://127.0.0.1:8088`。
+## Configuration
+
+The development API base URL is configured in `.env.development` and defaults to `http://127.0.0.1:8088`.
