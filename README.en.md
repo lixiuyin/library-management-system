@@ -42,18 +42,18 @@ Walk-throughs and feature demos are on the project's YouTube channel:
 
 ```text
 library-management-system/
-├── README.md              # English (default)
-├── README.md        # 中文
+├── README.md              # 中文（默认）
+├── README.en.md           # English
 ├── database-technology/   # SQL Server + Python CLI project
 │   ├── README.md
-│   ├── README.md
+│   ├── README.zh-CN.md
 │   ├── start-sql-edge.sh
 │   ├── init.py
 │   ├── main.py
 │   └── schema.sql
 └── software-engineering/  # Flask + Vue 2 + MySQL project
     ├── README.md
-    ├── README.md
+    ├── README.zh-CN.md
     ├── backend/
     ├── frontend/
     │   ├── reader-app/
