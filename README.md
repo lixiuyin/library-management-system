@@ -42,8 +42,8 @@
 
 ```text
 library-management-system/
-├── README.md              # English（默认）
-├── README.zh-CN.md        # 中文
+├── README.md              # 中文（默认）
+├── README.en.md           # English
 ├── database-technology/   # SQL Server + Python 命令行项目
 │   ├── README.md
 │   ├── README.zh-CN.md

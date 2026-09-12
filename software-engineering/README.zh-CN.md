@@ -124,7 +124,7 @@ cp backend/.env.example backend/.env
 ## 文档
 
 - [后端 API 文档](backend/api.md)
-- [根目录 README](../README.zh-CN.md)
+- [根目录中文 README](../README.md)
 
 ## 说明
 
